@@ -175,22 +175,47 @@ ul { list-style: none; }
   );
 }
 
-/* --- Texto sobre el slide --- */
+
 .slide-content {
   position: absolute;
-  top: 55%;
-  transform: translateY(-50%);
-  left: var(--header-padding-x, 80px);
-  max-width: 560px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, calc(-50% + 20px));
+
+  text-align: center; 
+  width: 90%;         
+  max-width: 800px;   
   color: #ffffff;
+  
+  /* Animación */
   opacity: 0;
-  transform: translateY(18px);
-  transition: opacity 0.7s ease 0.3s, transform 0.7s ease 0.3s;
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
+
+.slide-title {
+  font-size: 3.5rem; /* Tamaño grande y llamativo */
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.slide-desc {
+  font-size: 1.25rem;
+  opacity: 0.9;
+  margin: 0 auto; /* Centra el bloque de descripción */
+  max-width: 600px;
+}
+
+/* Estado cuando la diapositiva entra en pantalla */
 .slide.active .slide-content {
   opacity: 1;
-  transform: translateY(-50%);
+  transform: translate(-50%, -50%);
+}
+.slide.active .slide-content {
+  opacity: 1;
+  transform: translateY(-50%); 
 }
 
 .slide-tag {
