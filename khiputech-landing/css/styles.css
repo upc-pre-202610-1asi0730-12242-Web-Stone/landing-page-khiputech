@@ -1,0 +1,411 @@
+/* =============================================
+   VARIABLES GLOBALES
+   ============================================= */
+:root {
+  --color-primary:     #1A3A6B;   /* azul oscuro logo y botón */
+  --color-accent:      #1E6FD9;   /* azul línea inferior */
+  --color-text:        #1A1A2E;   /* texto nav */
+  --color-text-muted:  #6B7280;   /* tagline */
+  --color-bg:          #FFFFFF;
+
+  --font-brand: 'Segoe UI', system-ui, sans-serif;
+
+  --header-height:     100px;
+  --header-padding-x: 80px;      /* padding lateral estándar 1440px */
+}
+
+/* =============================================
+   RESET MÍNIMO
+   ============================================= */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--font-brand); background: var(--color-bg); color: var(--color-text); }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+
+/* =============================================
+   HEADER
+   ============================================= */
+.site-header {
+  width: 100%;
+  max-width: 100%;
+  height: var(--header-height);
+  margin: 0 auto;
+  background: var(--color-bg);
+  border-bottom: 2px solid var(--color-accent);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  padding: 0 var(--header-padding-x);
+}
+
+/* --- Logo --- */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.logo-icon {
+  display: block;
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.logo-name {
+  font-size: 1.25rem;      /* 20px */
+  font-weight: 700;
+  color: var(--color-primary);
+  letter-spacing: -0.01em;
+}
+
+.logo-tagline {
+  font-size: 0.55rem;      /* ~9px, idéntico al mockup */
+  font-weight: 500;
+  color: var(--color-text-muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-top: 3px;
+}
+
+/* --- Nav --- */
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.nav-list {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.nav-link {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: var(--color-text);
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--color-primary);
+  font-weight: 500;
+}
+
+/* --- CTA Button --- */
+.btn-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 22px;
+  background: var(--color-primary);
+  color: #FFFFFF;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border-radius: 6px;
+  white-space: nowrap;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.btn-cta:hover {
+  background: #14305a;
+  transform: translateY(-1px);
+}
+
+.btn-cta:active {
+  transform: translateY(0);
+}
+
+/* =============================================
+   HERO SLIDER
+   ============================================= */
+
+.hero-slider {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  height: calc(100vh - 100px); /* ocupa toda la pantalla menos el header */
+  overflow: hidden;
+  background: #0a0a0a;
+}
+
+/* --- Slides container --- */
+.slides-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 0.9s ease;
+  pointer-events: none;
+}
+
+.slide.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Overlay degradado para legibilidad del texto */
+.slide-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(10, 18, 40, 0.72) 0%,
+    rgba(10, 18, 40, 0.35) 55%,
+    rgba(10, 18, 40, 0.05) 100%
+  );
+}
+
+/* --- Texto sobre el slide --- */
+.slide-content {
+  position: absolute;
+  top: 55%;
+  transform: translateY(-50%);
+  left: var(--header-padding-x, 80px);
+  max-width: 560px;
+  color: #ffffff;
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.7s ease 0.3s, transform 0.7s ease 0.3s;
+}
+
+.slide.active .slide-content {
+  opacity: 1;
+  transform: translateY(-50%);
+}
+
+.slide-tag {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #7FB3F5;
+  margin-bottom: 14px;
+}
+
+.slide-title {
+  font-size: clamp(2rem, 3.2vw, 3rem);
+  font-weight: 700;
+  line-height: 1.18;
+  margin-bottom: 18px;
+  letter-spacing: -0.02em;
+}
+
+.slide-desc {
+  font-size: 1rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.78);
+  max-width: 440px;
+}
+
+/* --- Sidebar de miniaturas --- */
+.slider-sidebar {
+  position: absolute;
+  top: 50%;
+  right: 40px;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 10;
+}
+
+.thumb {
+  position: relative;
+  width: 88px;
+  height: 64px;
+  border: none;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  padding: 0;
+  background: none;
+  opacity: 0.45;
+  transition: opacity 0.35s ease, transform 0.35s ease, box-shadow 0.35s ease;
+  outline: none;
+}
+
+.thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.thumb:hover {
+  opacity: 0.75;
+  transform: scale(1.04);
+}
+
+.thumb.active {
+  opacity: 1;
+  box-shadow: 0 0 0 2.5px #ffffff, 0 4px 18px rgba(0,0,0,0.45);
+  transform: scale(1.06);
+}
+
+/* Barra de progreso en la miniatura activa */
+.thumb-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: #1E6FD9;
+  border-radius: 0 0 8px 8px;
+  transition: width linear; /* duración se aplica desde JS */
+}
+
+.thumb.active .thumb-bar {
+  width: 100%;
+}
+
+/* --- Dots indicadores --- */
+.slider-dots {
+  position: absolute;
+  bottom: 32px;
+  left: var(--header-padding-x, 80px);
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+
+.dot {
+  width: 28px;
+  height: 3px;
+  border-radius: 2px;
+  background: rgba(255,255,255,0.35);
+  transition: background 0.4s ease, width 0.4s ease;
+}
+
+.dot.active {
+  background: #ffffff;
+  width: 48px;
+}
+
+/* =============================================
+   RESPONSIVE
+   ============================================= */
+
+/* Tablet — 1024px */
+@media (max-width: 1024px) {
+  :root {
+    --header-padding-x: 40px;
+  }
+
+  .slider-sidebar {
+    right: 20px;
+  }
+
+  .thumb {
+    width: 72px;
+    height: 52px;
+  }
+
+  .slide-title {
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+  }
+}
+
+/* Mobile grande — 768px */
+@media (max-width: 768px) {
+  :root {
+    --header-padding-x: 24px;
+    --header-height: 72px;
+  }
+
+  /* Header: ocultar nav links, mostrar solo CTA */
+  .nav-list {
+    display: none;
+  }
+
+  .nav {
+    gap: 0;
+  }
+
+  /* Slider ocupa pantalla completa */
+  .hero-slider {
+    height: calc(100vh - 72px);
+  }
+
+  /* Texto más compacto */
+  .slide-content {
+    bottom: 18%;
+    max-width: 85%;
+  }
+
+  .slide-title {
+    font-size: clamp(1.4rem, 5vw, 2rem);
+  }
+
+  .slide-desc {
+    font-size: 0.9rem;
+  }
+
+  /* Sidebar de miniaturas abajo en móvil */
+  .slider-sidebar {
+    top: auto;
+    bottom: 60px;
+    right: 50%;
+    transform: translateX(50%);
+    flex-direction: row;
+    gap: 8px;
+  }
+
+  .thumb {
+    width: 56px;
+    height: 40px;
+  }
+
+  /* Dots más abajo */
+  .slider-dots {
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+/* Mobile pequeño — 480px */
+@media (max-width: 480px) {
+  :root {
+    --header-padding-x: 16px;
+  }
+
+  .logo-tagline {
+    display: none; /* muy pequeño para mostrar en móvil chico */
+  }
+
+  .slide-tag {
+    font-size: 0.65rem;
+  }
+
+  .slide-title {
+    font-size: clamp(1.2rem, 6vw, 1.7rem);
+  }
+
+  .slide-desc {
+    display: none; /* simplifica en pantallas muy pequeñas */
+  }
+
+  .slider-sidebar {
+    display: none; /* en móvil chico solo quedan los dots */
+  }
+}

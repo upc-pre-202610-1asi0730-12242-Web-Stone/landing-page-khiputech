@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KhipuTech</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="site-header">
+    <div class="header-inner">
+
+      <!-- Logo -->
+      <a href="#" class="logo">
+        <svg class="logo-icon" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="2" y1="2" x2="20" y2="20" stroke="#1A3A6B" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="20" y1="2" x2="2" y2="20" stroke="#1A3A6B" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+        <div class="logo-text">
+          <span class="logo-name">KhipuTech</span>
+          <span class="logo-tagline">REAL TIME MUSEUM ANALYTICS</span>
+        </div>
+      </a>
+
+      <!-- Nav -->
+      <nav class="nav" aria-label="Navegación principal">
+        <ul class="nav-list">
+          <li><a href="#" class="nav-link active">Inicio</a></li>
+          <li><a href="#" class="nav-link">¿Qué hacemos?</a></li>
+          <li><a href="#" class="nav-link">¿Quiénes somos?</a></li>
+          <!-- Los 5 botones adicionales van aquí cuando estén listos -->
+          <!-- <li><a href="#" class="nav-link">Sección 4</a></li> -->
+          <!-- <li><a href="#" class="nav-link">Sección 5</a></li> -->
+          <!-- <li><a href="#" class="nav-link">Sección 6</a></li> -->
+          <!-- <li><a href="#" class="nav-link">Sección 7</a></li> -->
+          <!-- <li><a href="#" class="nav-link">Sección 8</a></li> -->
+        </ul>
+        <a href="#" class="btn-cta">Empieza aquí</a>
+      </nav>
+
+    </div>
+  </header>
+
+  <!-- ===== HERO SLIDER ===== -->
+  <section class="hero-slider">
+
+    <!-- Slides -->
+    <div class="slides-container">
+
+      <div class="slide active" style="background-image: url('assets/MuseoMali.jpeg')">
+        <div class="slide-overlay"></div>
+        <div class="slide-content">
+          <p class="slide-tag">Recolecta información en tiempo real</p>
+          <h1 class="slide-title">Transforma la experiencia<br>de tus visitantes</h1>
+          <p class="slide-desc">KhipuInsight te da visibilidad total sobre el flujo y comportamiento de los visitantes de tu museo, en tiempo real.</p>
+        </div>
+      </div>
+
+      <div class="slide" style="background-image: url('assets/Exposicion_Mali.jpg')">
+        <div class="slide-overlay"></div>
+        <div class="slide-content">
+          <p class="slide-tag">Datos que importan</p>
+          <h1 class="slide-title">Decisiones más inteligentes,<br>salas mejor gestionadas</h1>
+          <p class="slide-desc">Visualiza preferencias de contenido, tiempos de permanencia y rutas de recorrido para optimizar cada espacio de tu institución.</p>
+        </div>
+      </div>
+
+      <div class="slide" style="background-image: url('assets/personas.jpg')">
+        <div class="slide-overlay"></div>
+        <div class="slide-content">
+          <p class="slide-tag">Tecnología para museos</p>
+          <h1 class="slide-title">Conecta cultura<br>con innovación</h1>
+          <p class="slide-desc">Una plataforma diseñada para instituciones culturales que quieren crecer con datos, sin perder su esencia.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Sidebar de miniaturas -->
+    <aside class="slider-sidebar">
+      <button class="thumb active" data-index="0" aria-label="Slide 1">
+        <img src="assets/MuseoMali.jpeg" alt="Slide 1" />
+        <span class="thumb-bar"></span>
+      </button>
+      <button class="thumb" data-index="1" aria-label="Slide 2">
+        <img src="assets/Exposicion_Mali.jpg" alt="Slide 2" />
+        <span class="thumb-bar"></span>
+      </button>
+      <button class="thumb" data-index="2" aria-label="Slide 3">
+        <img src="assets/personas.jpg" alt="Slide 3" />
+        <span class="thumb-bar"></span>
+      </button>
+    </aside>
+
+    <!-- Dots indicadores -->
+    <div class="slider-dots" aria-hidden="true">
+      <span class="dot active"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+
+  </section>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
