@@ -676,6 +676,21 @@ ul { list-style: none; }
 }
 
 /* =============================================
+   FOOTER
+   ============================================= */
+.site-footer {
+  width: 100%;
+  background: var(--color-primary);
+  padding: 24px var(--header-padding-x);
+  text-align: center;
+}
+
+.site-footer p {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* =============================================
    VALIDACIÓN FORMULARIO
    ============================================= */
 .input-error {
