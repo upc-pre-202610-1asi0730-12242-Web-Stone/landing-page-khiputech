@@ -68,3 +68,84 @@
   goTo(0);
   startAutoplay();
 })();
+
+// =============================================
+// VALIDACIÓN FORMULARIO CONTACTO
+// =============================================
+
+document.querySelector('.btn-submit').addEventListener('click', function () {
+  const campos = [
+    { id: 'nombre',      label: 'Nombre completo',            tipo: 'texto' },
+    { id: 'cargo',       label: 'Cargo',                      tipo: 'texto' },
+    { id: 'institucion', label: 'Nombre del museo',           tipo: 'texto' },
+    { id: 'correo',      label: 'Correo',                     tipo: 'email' },
+    { id: 'telefono',    label: 'Teléfono',                   tipo: 'telefono' },
+    { id: 'tipo',        label: 'Tipo de museo',              tipo: 'select' },
+  ];
+
+  limpiarErrores();
+
+  let valido = true;
+
+  campos.forEach(({ id, label, tipo }) => {
+    const campo = document.getElementById(id);
+    const valor = campo.value.trim();
+
+    if (!valor) {
+      mostrarError(campo, `${label} es obligatorio.`);
+      valido = false;
+      return;
+    }
+
+    if (tipo === 'email') {
+      const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!regexEmail.test(valor)) {
+        mostrarError(campo, 'Ingresa un correo válido. Ej: nombre@museo.pe');
+        valido = false;
+      }
+    }
+
+    if (tipo === 'telefono') {
+      const regexTel = /^[\d\s\+\-]{7,15}$/;
+      if (!regexTel.test(valor)) {
+        mostrarError(campo, 'Ingresa un teléfono válido. Ej: +51 999 888 777');
+        valido = false;
+      }
+    }
+  });
+
+  if (valido) {
+    mostrarExito();
+  }
+});
+
+function mostrarError(campo, mensaje) {
+  campo.classList.add('input-error');
+
+  const error = document.createElement('span');
+  error.className = 'error-msg';
+  error.textContent = mensaje;
+
+  campo.parentElement.appendChild(error);
+}
+
+function limpiarErrores() {
+  document.querySelectorAll('.error-msg').forEach(e => e.remove());
+  document.querySelectorAll('.input-error').forEach(e => e.classList.remove('input-error'));
+}
+
+function mostrarExito() {
+  limpiarErrores();
+
+  const form = document.querySelector('.contact__form');
+  form.innerHTML = `
+    <div class="success-msg">
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#1E6FD9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"/>
+        <polyline points="9 12 11 14 15 10"/>
+      </svg>
+      <h3>¡Mensaje enviado!</h3>
+      <p>Nos pondremos en contacto contigo pronto.</p>
+    </div>
+  `;
+}

@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
   <title>KhipuTech</title>
   <link rel="stylesheet" href="css/styles.css" />
 </head>
@@ -14,9 +16,8 @@
 
       <!-- Logo -->
       <a href="#" class="logo">
-        <svg class="logo-icon" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <line x1="2" y1="2" x2="20" y2="20" stroke="#1A3A6B" stroke-width="2.5" stroke-linecap="round"/>
-          <line x1="20" y1="2" x2="2" y2="20" stroke="#1A3A6B" stroke-width="2.5" stroke-linecap="round"/>
+        <svg class="logo-icon" width="30" height="30" viewBox="0 0 22 22">
+            <image href="assets/KhipuTechLogo.jpeg" width="22" height="22"/>
         </svg>
         <div class="logo-text">
           <span class="logo-name">KhipuTech</span>
@@ -26,19 +27,19 @@
 
       <!-- Nav -->
       <nav class="nav" aria-label="Navegación principal">
-        <ul class="nav-list">
-          <li><a href="#" class="nav-link active">Inicio</a></li>
-          <li><a href="#" class="nav-link">¿Qué hacemos?</a></li>
-          <li><a href="#" class="nav-link">¿Quiénes somos?</a></li>
-          <!-- Los 5 botones adicionales van aquí cuando estén listos -->
-          <!-- <li><a href="#" class="nav-link">Sección 4</a></li> -->
-          <!-- <li><a href="#" class="nav-link">Sección 5</a></li> -->
-          <!-- <li><a href="#" class="nav-link">Sección 6</a></li> -->
-          <!-- <li><a href="#" class="nav-link">Sección 7</a></li> -->
-          <!-- <li><a href="#" class="nav-link">Sección 8</a></li> -->
-        </ul>
-        <a href="#" class="btn-cta">Empieza aquí</a>
-      </nav>
+  <ul class="nav-list">
+    <li><a href="#" class="nav-link active">Inicio</a></li>
+    <li><a href="#evidence" class="nav-link">Evidencias</a></li>
+    <li class="nav-dropdown">
+      <a href="#" class="nav-link nav-link--dropdown">Conócenos</a>
+      <ul class="dropdown-menu">
+        <li><a href="#what-we-do" class="dropdown-link">¿Qué hacemos?</a></li>
+        <li><a href="#who-we-are" class="dropdown-link">¿Quiénes somos?</a></li>
+      </ul>
+    </li>
+  </ul>
+  <a href="#contact" class="btn-cta">Contáctanos</a>
+</nav>
 
     </div>
   </header>
@@ -103,6 +104,180 @@
 
   </section>
 
+  <section class="evidence" id="evidence">
+  <div class="evidence__inner">
+    <h2 class="evidence__title">Evidencias</h2>
+    <p class="evidence__desc">
+      Conoce de cerca cómo KhipuInsight transforma la gestión de museos en tiempo real. 
+      En este video presentamos el prototipo funcional desarrollado por el equipo WebStone, 
+      demostrando el monitoreo de afluencia por sala, la experiencia del visitante vía QR 
+      y el dashboard curatorial en acción.
+    </p>
+
+    <div class="evidence__video-wrapper">
+      <iframe
+        src="https://www.youtube.com/embed/TU_ID_DE_VIDEO"
+        title="KhipuTech - Evidencias"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+
+  </div>
+</section>
+
+ <section class="what-we-do" id="what-we-do" style="background-image: url('assets/EvidenciaFondo.jpg')">
+  <div class="what-we-do__inner">
+    <h2 class="what-we-do__title">¿Qué hacemos?</h2>
+
+    <p class="what-we-do__desc">
+      KhipuTech transforma la experiencia museística combinando sensores IoT de bajo costo 
+      con plataformas web dinámicas. Convertimos el comportamiento del visitante en datos 
+      estratégicos que empoderan a las instituciones culturales a tomar mejores decisiones.
+    </p>
+
+    <ul class="what-we-do__list">
+      <li class="what-we-do__item">
+        <div class="item-icon"><i data-lucide="eye" style="width:20px;height:20px;color:#fff"></i></div>
+        <p class="item-text">Monitoreo de afluencia en tiempo real: visualizamos el número de visitantes por sala mediante sensores infrarrojos de bajo costo, detectando saturación al instante.</p>
+      </li>
+      <li class="what-we-do__item">
+        <div class="item-icon"><i data-lucide="qr-code" style="width:20px;height:20px;color:#fff"></i></div>
+        <p class="item-text">Gestión de contenido dinámico vía QR/NFC: actualizamos la información de obras de forma remota sin necesidad de cambiar los códigos físicos del recinto.</p>
+      </li>
+      <li class="what-we-do__item">
+        <div class="item-icon"><i data-lucide="bar-chart-2" style="width:20px;height:20px;color:#fff"></i></div>
+        <p class="item-text">Dashboard curatorial: reportes detallados sobre qué obras generan mayor interacción, ayudando a curadores a tomar decisiones basadas en datos reales.</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="who-we-are" id="who-we-are">
+  <div class="who-we-are__inner">
+    <h2 class="who-we-are__title">¿Quiénes somos?</h2>
+    <p class="who-we-are__desc">
+      Somos WebStone, un equipo de estudiantes de Ingeniería de Software de la UPC 
+      apasionados por democratizar el acceso a la inteligencia de datos en espacios culturales 
+      de Latinoamérica.
+    </p>
+
+    <div class="team-grid">
+
+      <div class="team-card">
+        <div class="team-card__photo">
+          <img src="assets/personas.jpg" alt="Fabian Sandoval">
+        </div>
+        <div class="team-card__info">
+          <h3 class="team-card__name">Fabian Sandoval Cueto</h3>
+          <span class="team-card__role">Team Leader</span>
+          <p class="team-card__bio">Especialista en automatización de procesos, integración de APIs y configuración de infraestructura cloud con GCP y Docker.</p>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-card__photo">
+          <img src="assets/img-Oscar.jpeg" alt="Oscar Checa">
+        </div>
+        <div class="team-card__info">
+          <h3 class="team-card__name">Oscar Checa Burga</h3>
+          <span class="team-card__role">UX/UI Designer</span>
+          <p class="team-card__bio">Especializado en diseño de experiencia de usuario. Lidera la creación de wireframes, mockups y guías de estilo visual en Figma.</p>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-card__photo">
+          <img src="assets/AndreaFotoPerfil.jpeg" alt="Andrea Correa">
+        </div>
+        <div class="team-card__info">
+          <h3 class="team-card__name">Andrea Correa Rodriguez</h3>
+          <span class="team-card__role">Domain Analyst</span>
+          <p class="team-card__bio">Enfocada en análisis de sistemas y arquitectura de software. Traduce requisitos complejos en soluciones técnicas efectivas.</p>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-card__photo">
+          <img src="assets/WinnieFotoPerfil.jpg" alt="Winnie Merino">
+        </div>
+        <div class="team-card__info">
+          <h3 class="team-card__name">Winnie Merino Ordinola</h3>
+          <span class="team-card__role">Software Developer</span>
+          <p class="team-card__bio">Estudiante de quinto ciclo con enfoque en trabajo colaborativo e innovación. Apasionada por proponer soluciones que resuelvan problemas reales.</p>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-card__photo">
+          <img src="assets/LuisFotoPerfil.jpeg" alt="Luis Huaco">
+        </div>
+        <div class="team-card__info">
+          <h3 class="team-card__name">Luis Huaco Oliva</h3>
+          <span class="team-card__role">Technical Writer & QA</span>
+          <p class="team-card__bio">Interesado en documentación técnica y aseguramiento de calidad. Garantiza que el software funcione correctamente y esté bien documentado.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="contact__inner">
+    <h2 class="contact__title">Contáctanos</h2>
+
+    <div class="contact__form">
+      <div class="form-group">
+        <label class="form-label" for="nombre">Nombre completo:</label>
+        <input class="form-input" type="text" id="nombre" placeholder="Ej. María Fernández García">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="cargo">Cargo:</label>
+        <input class="form-input" type="text" id="cargo" placeholder="Ej. Directora de Museo">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="institucion">Nombre del museo o institución:</label>
+        <input class="form-input" type="text" id="institucion" placeholder="Ej. Museo de Arte Contemporáneo">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="correo">Correo:</label>
+        <input class="form-input" type="email" id="correo" placeholder="maria.fernandez@museo.pe">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="telefono">Teléfono:</label>
+        <input class="form-input" type="tel" id="telefono" placeholder="+51 999 888 777">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="tipo">Tipo de museo:</label>
+        <div class="form-select-wrapper">
+          <select class="form-select" id="tipo">
+            <option value="" disabled selected>Seleccione una opción</option>
+            <option value="arte">Arte</option>
+            <option value="historia">Historia</option>
+            <option value="ciencia">Ciencia</option>
+            <option value="cultura">Cultura</option>
+            <option value="otro">Otro</option>
+          </select>
+        </div>
+      </div>
+
+      <button class="btn-submit">ENVIAR</button>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <p>© 2026 KhipuTech</p>
+</footer>
+
   <script src="js/main.js"></script>
+  <script>lucide.createIcons();</script>
 </body>
 </html>
